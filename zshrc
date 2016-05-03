@@ -17,7 +17,7 @@ bindkey '^R' history-incremental-search-backward
 
 alias  history="fc -t '%Y-%m-%d %H:%M:%S' -l 0"
 
-if [ $LOGNAME = 0 ]; then
+if [ "$LOGNAME" = "root" ]; then
 	PS1="${HOST}# "
 	alias la='ls -lha'
 else

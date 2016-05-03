@@ -8,7 +8,7 @@ export HISTCONTROL=ignoredups
 shopt -s histappend
 export PROMPT_COMMAND="history -a"
 
-if [ $LOGNAME = 0 ]; then
+if [ "$LOGNAME" = "root" ]; then
 	export PS1="\h# "
 	alias la="ls -lha"
 else
