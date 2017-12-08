@@ -2,7 +2,6 @@
 # ~/.screenrc
 #
 defscrollback	2000
-deflogin	on
 hardcopy_append	on
 activity	"activity in %n (%t) [%w:%s]~"
 bell_msg	"message in %n (%t) [%w:%s]~"
@@ -11,6 +10,9 @@ term		xterm
 source		${HOME}/.screenrc.local
 
 # hardstatus	ignore
+# backtick	1 5 5 /usr/bin/awk '{print "Load: " $1}' /proc/loadavg
+# backtick	2 5 5 /usr/local/bin/sensors_adt746x.sh -s
+# hardstatus	alwayslastline "%{= kc} %H | %Y-%m-%d %c:%s | %1` | %2` | %w"
 # escape	^Aa
 # screen	-T xterm -t foo
 # screen	-T xterm -t bar
