@@ -5,9 +5,9 @@
 #
 
 # curl? wget? fetch?
-type -p curl  > /dev/null && PROG="curl --insecure --output"
-type -p fetch > /dev/null && PROG="fetch --no-verify-peer --output"
-type -p wget  > /dev/null && PROG="wget --no-check-certificate --output-document"
+type -p curl  > /dev/null && PROG="curl  --output"
+type -p fetch > /dev/null && PROG="fetch --output"
+type -p wget  > /dev/null && PROG="wget  --output-document"
 
 if [ -z "$PROG" ]; then
 	echo "No download program found. Install \"curl\", \"wget\" or \"fetch\" and try again!"
