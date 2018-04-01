@@ -5,9 +5,9 @@
 #
 
 # curl? wget? fetch?
-type -p curl  > /dev/null && PROG="curl  --output"
-type -p fetch > /dev/null && PROG="fetch --output"
-type -p wget  > /dev/null && PROG="wget  --output-document"
+type curl  > /dev/null && PROG="curl  --output"
+type fetch > /dev/null && PROG="fetch --output"
+type wget  > /dev/null && PROG="wget  --output-document"
 
 if [ -z "$PROG" ]; then
 	echo "No download program found. Install \"curl\", \"wget\" or \"fetch\" and try again!"
