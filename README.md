@@ -9,8 +9,8 @@ These dotfiles are usually executed in this order:
 Install them all, as [dangerously](https://unix.stackexchange.com/a/339276 "What's the difference between `curl | sh` and `sh -c “$(curl)”`?") as possible:
 
     ftp   -o-  https://raw.githubusercontent.com/ckujau/dotfiles/master/install-dot.sh | sh
-    curl  -Ls  https://raw.githubusercontent.com/ckujau/dotfiles/master/install-dot.sh | sh
     fetch -o-  https://raw.githubusercontent.com/ckujau/dotfiles/master/install-dot.sh | sh
+    curl  -Ls  https://raw.githubusercontent.com/ckujau/dotfiles/master/install-dot.sh | sh
     wget  -qO- https://raw.githubusercontent.com/ckujau/dotfiles/master/install-dot.sh | sh
 
 Missing root certificates and the commands above fail? Install as needed:
