@@ -5,38 +5,38 @@
 
 strip apod
 	name Astronomy Picture of the Day
-	homepage http://apod.nasa.gov/apod/ap%y%m%d.html
-	baseurl http://apod.nasa.gov/apod/
+	homepage https://apod.nasa.gov/apod/ap%y%m%d.html
+	baseurl https://apod.nasa.gov/apod/
 	type search
-	searchpage http://apod.nasa.gov/apod/ap%y%m%d.html
+	searchpage https://apod.nasa.gov/apod/ap%y%m%d.html
 	searchpattern <a href="(image/%y%m/.+?.(gif|jpg))">
 	provides any
 end
 
 strip dilbert
 	name Dilbert
-	homepage http://dilbert.com/fast/%Y-%m-%d/
-	baseurl http://dilbert.com
+	homepage https://dilbert.com/fast/%Y-%m-%d/
+	baseurl https://dilbert.com
 	type search
-	searchpage http://dilbert.com/strips/comic/%Y-%m-%d/
+	searchpage https://dilbert.com/strips/comic/%Y-%m-%d/
 	searchpattern <input.+?value="(/dyn/str_strip/\d+.*\d+\.strip\.print\.(gif|jpg))"
 	provides any
 end
 
 strip garfield
 	name Garfield
-	homepage http://www.ucomics.com/garfield/%Y/%m/%d/
+	homepage https://www.ucomics.com/garfield/%Y/%m/%d/
 	type search
-	searchpage http://www.gocomics.com/printable/garfield/%Y/%m/%d/
+	searchpage https://www.gocomics.com/printable/garfield/%Y/%m/%d/
 	searchpattern src="(http:\/\/assets.amuniversal.com\/[0-9a-f]+)"
 	provides any
 end
 
 strip peanuts
 	name Peanuts
-	homepage http://www.gocomics.com/peanuts/%Y/%m/%d/
+	homepage https://www.gocomics.com/peanuts/%Y/%m/%d/
 	type search
-	searchpage http://www.gocomics.com/printable/peanuts/%Y/%m/%d/
+	searchpage https://www.gocomics.com/printable/peanuts/%Y/%m/%d/
 	searchpattern src="(http:\/\/assets.amuniversal.com\/[0-9a-f]+)"
 	provides any
 end

@@ -32,11 +32,15 @@ alias shuf="perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);'"
 # alias fastboot="/Applications/Non-Apple/AndroidSDK/sdk/platform-tools/fastboot"
 
 # Enable "Secure Keyboard" for MacOS X
-# https://security.stackexchange.com/questions/47749/how-secure-is-secure-keyboard-entry-in-mac-os-xs-terminal
-# https://developer.apple.com/library/mac/technotes/tn2150/
+# > How secure is “Secure Keyboard Entry” in Mac OS X's Terminal?
+# > https://security.stackexchange.com/q/47749
+# 
+# > Technical Note TN2150: Using Secure Event Input Fairly
+# > https://developer.apple.com/library/archive/technotes/tn2150/
 defaults write com.apple.Terminal SecureKeyboardEntry 1
 
-# https://gist.github.com/648188
+# > tobym/pwdx_for_mac.bash
+# > https://gist.github.com/tobym/648188
 function pwdx {
         lsof -a -p $1 -d cwd -n | tail -1 | awk '{print $NF}'
 }

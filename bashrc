@@ -17,8 +17,8 @@ else
 fi
 
 
-# Enable bash-completion only if not in POSIX mode
-# https://www.gnu.org/software/bash/manual/html_node/Bash-POSIX-Mode.html
+# > Enable bash-completion only if not in POSIX mode
+# > https://www.gnu.org/software/bash/manual/html_node/Bash-POSIX-Mode.html
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
