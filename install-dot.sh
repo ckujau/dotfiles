@@ -5,10 +5,10 @@
 #
 
 # NetBSD/ftp? FreeBSD/fetch? curl? wget? Order matters here.
-type ftp   > /dev/null && PROG="ftp   -o"
-type fetch > /dev/null && PROG="fetch -o"
-type curl  > /dev/null && PROG="curl  -L --output"
-type wget  > /dev/null && PROG="wget     --output-document"
+type ftp   > /dev/null 2>&1 && PROG="ftp   -o"
+type fetch > /dev/null 2>&1 && PROG="fetch -o"
+type curl  > /dev/null 2>&1 && PROG="curl  -L --output"
+type wget  > /dev/null 2>&1 && PROG="wget     --output-document"
 
 if [ -z "$PROG" ]; then
 	echo "No download program found. Install \"ftp\", \"fetch\", \"curl\" or \"wget\" and try again!"
