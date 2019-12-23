@@ -3,7 +3,7 @@
 #
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$HOME/.zsh_histfile
+HISTFILE=${HOME}/.zsh_histfile
 
 setopt append_history		# append, rather than replace history file entries
 setopt extended_history		# save timestamp & duration
@@ -17,16 +17,16 @@ bindkey '^R' history-incremental-search-backward
 
 alias  history="fc -t '%Y-%m-%d %H:%M:%S' -l 0"
 
-if [ "$USERNAME" = "root" ]; then
-	PS1="%n# "
+if [ ${USERNAME} = "root" ]; then
+	PROMPT='%n# '
 	alias la='ls -lha'
 else
-	PS1="%n@%m$ "
+	PROMPT='%n@%m$ '
 	alias la='ls -lh'
 fi
 
 # Enable ZSH completion
 autoload -U compinit && compinit -i
 
-[ -r $HOME/.aliases     ] && . $HOME/.aliases
-[ -f $HOME/.shell.local ] && . $HOME/.shell.local
+[ -r ${HOME}/.aliases     ] && . ${HOME}/.aliases
+[ -f ${HOME}/.shell.local ] && . ${HOME}/.shell.local

@@ -1,4 +1,4 @@
 #
 # .zprofile
 #
-[ -r $HOME/.profile ] && . $HOME/.profile
+[ -r ${HOME}/.profile ] && . ${HOME}/.profile

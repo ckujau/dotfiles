@@ -6,7 +6,7 @@
 export PS1='\[\033[1;31m\]\h#\[\033[0m\] '
 
 # W3C Tidy
-alias tidy="tidy -config $HOME/.tidyrc"
+alias tidy="tidy -config ${HOME}/.tidyrc"
 
 # Combine pwgen & passwdqc
 pwgen_check() { pwgen $@ | pwqcheck -1 --multi; }
@@ -16,11 +16,11 @@ npk() { sed 's/^\[[ 0-9\.]*\] //'; }
 
 ##### MacOS X
 if [ -d /opt/local/bin ]; then
-	export PATH=/opt/local/sbin:/opt/local/bin:$PATH
+	export PATH=/opt/local/sbin:/opt/local/bin:${PATH}
 fi
 
 # On MacOS X, TMPDIR changes every time Terminal.app starts
-export SCREENDIR=$HOME/.screen
+export SCREENDIR=${HOME}/.screen
 
 # More MacOS X shortcuts
 alias top="top -o cpu"
@@ -42,16 +42,16 @@ defaults write com.apple.Terminal SecureKeyboardEntry 1
 # > tobym/pwdx_for_mac.bash
 # > https://gist.github.com/tobym/648188
 function pwdx {
-        lsof -a -p $1 -d cwd -n | tail -1 | awk '{print $NF}'
+        lsof -a -p ${1} -d cwd -n | tail -1 | awk '{print $NF}'
 }
 
 # Look for running SSH agents
-SSH_AGENT_PID_TEMP=$(pgrep -u $LOGNAME ssh-agent | head -1)
-if [ -n "$SSH_AGENT_PID_TEMP" ]; then
-	SSH_AUTH_SOCK_TEMP=$(find /tmp/ssh-* -name "agent.*$((SSH_AGENT_PID_TEMP-1))" -user $LOGNAME -type s 2>/dev/null)
-	if [ -S "$SSH_AUTH_SOCK_TEMP" ]; then
-		export SSH_AGENT_PID="$SSH_AGENT_PID_TEMP"
-		export SSH_AUTH_SOCK="$SSH_AUTH_SOCK_TEMP"
+SSH_AGENT_PID_TEMP=$(pgrep -u ${LOGNAME} ssh-agent | head -1)
+if [ -n "${SSH_AGENT_PID_TEMP}" ]; then
+	SSH_AUTH_SOCK_TEMP=$(find /tmp/ssh-* -name "agent.*$((SSH_AGENT_PID_TEMP-1))" -user ${LOGNAME} -type s 2>/dev/null)
+	if [ -S "${SSH_AUTH_SOCK_TEMP}" ]; then
+		export SSH_AGENT_PID="${SSH_AGENT_PID_TEMP}"
+		export SSH_AUTH_SOCK="${SSH_AUTH_SOCK_TEMP}"
 		unset SSH_AGENT_PID_TEMP SSH_AUTH_SOCK_TEMP
 	fi
 fi
