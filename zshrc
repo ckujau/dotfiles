@@ -18,7 +18,7 @@ bindkey '^R' history-incremental-search-backward
 alias  history="fc -t '%Y-%m-%d %H:%M:%S' -l 0"
 
 if [ ${USERNAME} = "root" ]; then
-	PROMPT='%n# '
+	PROMPT='%n@%m# '
 	alias la='ls -lha'
 else
 	PROMPT='%n@%m$ '
