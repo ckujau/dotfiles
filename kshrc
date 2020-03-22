@@ -6,7 +6,7 @@ export HISTSIZE=10000
 export HOSTNAME=$(uname -n | cut -d\. -f1)
 export FCEDIT='/bin/false'
 
-if [ ${LOGNAME} = "root" ]; then
+if [ "${LOGNAME}" = "root" ]; then
 	export PS1="${HOSTNAME}# "
 	alias la='ls -lha'
 else
@@ -16,5 +16,5 @@ fi
 
 set -o emacs					# Try 'vi' for a change :-)
 
-[ -r ${HOME}/.aliases     ] && . ${HOME}/.aliases
-[ -r ${HOME}/.shell.local ] && . ${HOME}/.shell.local
+[ -r "${HOME}/.aliases"     ] && . "${HOME}/.aliases"
+[ -r "${HOME}/.shell.local" ] && . "${HOME}/.shell.local"

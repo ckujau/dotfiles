@@ -14,10 +14,9 @@ setopt share_history		# import & append new commands to/from history file
 
 bindkey -e			# use EMACS keymap
 bindkey '^R' history-incremental-search-backward
-
 alias  history="fc -t '%Y-%m-%d %H:%M:%S' -l 0"
 
-if [ ${USERNAME} = "root" ]; then
+if [ "${USERNAME}" = "root" ]; then
 	PROMPT='%n@%m# '
 	alias la='ls -lha'
 else
@@ -28,5 +27,5 @@ fi
 # Enable ZSH completion
 autoload -U compinit && compinit -i
 
-[ -r ${HOME}/.aliases     ] && . ${HOME}/.aliases
-[ -f ${HOME}/.shell.local ] && . ${HOME}/.shell.local
+[ -r "${HOME}/.aliases"     ] && . "${HOME}/.aliases"
+[ -f "${HOME}/.shell.local" ] && . "${HOME}/.shell.local"

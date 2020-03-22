@@ -12,7 +12,7 @@ alias rm='rm -i'
 # 
 # > GREP_OPTIONS alternative?
 # > https://debbugs.gnu.org/cgi/bugreport.cgi?bug=19998
-if grep --version 2>/dev/null | egrep -q 'GNU|BSD' 2>/dev/null; then
+if grep --version 2>/dev/null | grep -Eq 'GNU|BSD' 2>/dev/null; then
 	alias   grep='grep   --color=auto --devices=skip'
 	alias  egrep='egrep  --color=auto --devices=skip'
 	alias  fgrep='fgrep  --color=auto --devices=skip'
@@ -22,7 +22,7 @@ if grep --version 2>/dev/null | egrep -q 'GNU|BSD' 2>/dev/null; then
 fi
 
 # But what about Solaris systems, with their GNU packages installed? What a mess..
-if ggrep --version 2>/dev/null | gegrep -q 'GNU|BSD' 2>/dev/null; then
+if ggrep --version 2>/dev/null | ggrep -Eq 'GNU|BSD' 2>/dev/null; then
 	alias   ggrep='ggrep   --color=auto --devices=skip'
 	alias  gegrep='gegrep  --color=auto --devices=skip'
 	alias  gfgrep='gfgrep  --color=auto --devices=skip'

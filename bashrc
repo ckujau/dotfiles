@@ -8,7 +8,7 @@ export HISTCONTROL=ignoredups
 shopt -s histappend
 export PROMPT_COMMAND="history -a"
 
-if [ ${LOGNAME} = "root" ]; then
+if [ "${LOGNAME}" = "root" ]; then
 	export PS1='\h# '
 	alias la='ls -lha'
 else
@@ -23,5 +23,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
 
-[ -r ${HOME}/.aliases     ] && . ${HOME}/.aliases
-[ -r ${HOME}/.shell.local ] && . ${HOME}/.shell.local
+[ -r "${HOME}/.aliases"     ] && . "${HOME}/.aliases"
+[ -r "${HOME}/.shell.local" ] && . "${HOME}/.shell.local"
