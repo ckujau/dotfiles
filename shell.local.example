@@ -45,15 +45,8 @@ function pwdx {
         lsof -a -p "${1}" -d cwd -n | tail -1 | awk '{print $NF}'
 }
 
-# SSH Agent
-if ! pgrep -u "${USER}" ssh-agent > /dev/null; then
-	ssh-agent | grep -v 'Agent pid' > "${XDG_RUNTIME_DIR}/ssh-agent.env"
-	eval "$(<"${XDG_RUNTIME_DIR}/ssh-agent.env")"
-fi
-
-if [ ! "${SSH_AUTH_SOCK}" ]; then
-	eval "$(<"${XDG_RUNTIME_DIR}/ssh-agent.env")"
-fi
+# https://www.funtoo.org/Keychain
+eval $(keychain --eval --quiet)
 
 # dmesg: translate relative printk time stamps to absolute time stamps
 function kmsg() {
