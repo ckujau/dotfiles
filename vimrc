@@ -2,19 +2,20 @@
 " ~/.vimrc
 "
 set background=dark		" Use 'light' otherwise
-set encoding=utf-8
+set encoding=utf-8		" default: 'latin1'
+set nohlsearch			" Don't highlight search results
+set noincsearch			" No incremental search
+set nolist			" Don't show tabs
+set nomodeline			" CVE-2019-12735
+set nonumber			" Don't show line numbers
 set ruler			" Show ruler
 set showcmd			" Show (partial) command in status line
 set showmatch			" Show matching brackets
-set noincsearch			" No incremental search
-set nohlsearch			" Don't highlight search results
-set nolist			" Don't show tabs
-set nonumber			" Don't show line numbers
 set t_ti= t_te=			" Don't blank on exit
 set viminfo='100,<1000,s10,h	" Raise register buffer to 1000
-set nomodeline			" CVE-2019-12735
-" set tabstop=4			" Number of spaces for <Tab>
+" set lcs+=space:·		" Print spaces as dots when 'list' is active.
 " set shiftwidth=4		" Number of spaces (auto)indent
+" set tabstop=4			" Number of spaces for <Tab>
 
 " Syntax highlighting
 if has("syntax")
