@@ -41,7 +41,7 @@ defaults write com.apple.Terminal SecureKeyboardEntry 1
 
 # > tobym/pwdx_for_mac.bash
 # > https://gist.github.com/tobym/648188
-function pwdx {
+_pwdx() {
         lsof -a -p "${1}" -d cwd -n | tail -1 | awk '{print $NF}'
 }
 
@@ -49,6 +49,6 @@ function pwdx {
 eval $(keychain --eval --quiet)
 
 # dmesg: translate relative printk time stamps to absolute time stamps
-function kmsg() {
+_kmsg() {
 	dmesg | perl -ne "BEGIN{\$a= time()- qx!cat /proc/uptime!}; s/\[\s*(\d+)\.\d+\]/localtime(\$1 + \$a)/e; print \$_;"
 }
