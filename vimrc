@@ -20,7 +20,7 @@ set viminfo='100,<1000,s10,h	" Raise register buffer to 1000
 " Syntax highlighting
 if has("syntax")
 	syntax on
-	colorscheme slate
+"	colorscheme murphy
 endif
 
 " Jump to the last cursor position upon reopening a file
