@@ -1,8 +1,8 @@
 #
 # ~/.zshrc
 #
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 HISTFILE=${HOME}/.zsh_histfile
 
 setopt append_history		# append, rather than replace history file entries

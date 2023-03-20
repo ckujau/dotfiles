@@ -2,8 +2,8 @@
 # ~/.kshrc
 #
 export HISTFILE=${HOME}/.ksh_history
-export HISTSIZE=10000
 export HOSTNAME=$(uname -n | cut -d\. -f1)
+export HISTSIZE=50000
 export FCEDIT='/bin/false'
 
 if [ "${LOGNAME}" = "root" ]; then
