@@ -16,7 +16,7 @@ if [ -z "${PROG}" ]; then
 else
 	for f in aliases bash_profile bashrc kshrc profile screenrc tmux.conf vimrc wgetrc zprofile zshrc; do
 		[ -f .${f} ] && mv .${f} .${f}.bak.$$
-		$PROG .${f} https://raw.githubusercontent.com/ckujau/dotfiles/master/${f}
+		$PROG .${f} https://raw.githubusercontent.com/ckujau/dotfiles/main/${f}
 	done
 
 	BACKUP_FILES=$(ls -d .*.bak.$$ 2>/dev/null | xargs echo)
