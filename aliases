@@ -14,8 +14,6 @@ alias rm='rm -i'
 # > https://debbugs.gnu.org/cgi/bugreport.cgi?bug=19998
 if grep --version 2>/dev/null | grep -Eq 'GNU|BSD' 2>/dev/null; then
 	alias     grep='grep     --color=auto --devices=skip'
-	alias    egrep='grep     --color=auto --devices=skip -E'
-	alias    fgrep='grep     --color=auto --devices=skip -F'
 	alias    zgrep='zgrep    --color=auto --devices=skip'
 	alias   bzgrep='bzgrep   --color=auto --devices=skip'
 	alias   xzgrep='xzgrep   --color=auto --devices=skip'
@@ -25,7 +23,5 @@ fi
 # But what about Solaris systems, with their GNU packages installed? What a mess..
 if ggrep --version 2>/dev/null | ggrep -Eq 'GNU|BSD' 2>/dev/null; then
 	alias   ggrep='ggrep  --color=auto --devices=skip'
-	alias  gegrep='ggrep  --color=auto --devices=skip -E'
-	alias  gfgrep='ggrep  --color=auto --devices=skip -F'
 	alias  gzgrep='gzgrep --color=auto --devices=skip'
 fi
