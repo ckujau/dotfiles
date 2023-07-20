@@ -1,7 +1,7 @@
 #
 # ~/.screenrc
 #
-defscrollback	2000
+defscrollback	20000
 hardcopy_append	on
 activity	"activity in %n (%t) [%w:%s]~"
 bell_msg	"message in %n (%t) [%w:%s]~"
