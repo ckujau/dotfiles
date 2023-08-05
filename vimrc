@@ -16,6 +16,8 @@ set viminfo='100,<1000,s10,h	" Raise register buffer to 1000
 " set lcs+=space:·		" Print spaces as dots when 'list' is active.
 " set shiftwidth=4		" Number of spaces (auto)indent
 " set tabstop=4			" Number of spaces for <Tab>
+"
+" set textwidth=80		" To be used interactively, with gq}
 
 " Syntax highlighting
 if has("syntax")
