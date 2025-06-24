@@ -4,7 +4,7 @@
 export HISTFILE="${HOME}/.bash_history"
 export HISTTIMEFORMAT="%F %T "
 export HISTSIZE=50000
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 export PROMPT_COMMAND="history -a"
 
