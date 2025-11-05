@@ -10,7 +10,7 @@ setopt extended_history		# save timestamp & duration
 setopt hist_ignore_dups		# don't save duplicate history entries
 setopt hist_verify		# don't execute, only expand history
 setopt inc_append_history	# add commands as soon as they're entered
-setopt share_history		# import & append new commands to/from history file
+# setopt share_history		# import & append new commands to/from history file
 
 bindkey -e			# use EMACS keymap
 bindkey '^R' history-incremental-search-backward

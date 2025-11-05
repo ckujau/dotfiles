@@ -2,11 +2,17 @@
 # ~/.shell.local
 #
 
+# Adjust as needed
+export LC_ALL=en_GB.UTF-8
+
 # A more colourful prompt
 export PS1='\[\033[1;31m\]\h#\[\033[0m\] '
 
 # W3C Tidy
 alias tidy="tidy -config ${HOME}/.tidyrc"
+
+# Umlauts!
+alias _umlaute="echo ä ö ü ß Ä Ö Ü ẞ ™ ® © ≠ ∈ ∉ π € £ ∞ °"
 
 # Combine pwgen & passwdqc
 pwgen_check() { pwgen "$@" | pwqcheck -1 --multi; }
@@ -14,7 +20,10 @@ pwgen_check() { pwgen "$@" | pwqcheck -1 --multi; }
 # dmesg filter to omit printk timestamps (if dmesg -t is not available yet)
 npk() { sed 's/^\[[ 0-9\.]*\] //'; }
 
-##### MacOS X
+# Epoch-to-time
+e2t() { perl -pe 's/(\d+)/localtime($1)/e'; }
+
+# MacOS X
 if [ -d /opt/local/bin ]; then
 	export PATH=/opt/local/sbin:/opt/local/bin:${PATH}
 fi
@@ -26,10 +35,9 @@ export SCREENDIR=${HOME}/.screen
 alias top="top -o cpu"
 alias df="df -P"
 alias shuf="perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);'"
-
-# Android SDK
-# alias      adb="/Applications/Non-Apple/AndroidSDK/sdk/platform-tools/adb"
-# alias fastboot="/Applications/Non-Apple/AndroidSDK/sdk/platform-tools/fastboot"
+alias _history="HISTTIMEFORMAT='' history"		# Because HISTTIMEFORMAT is so slow on macOS
+alias macssl="/usr/bin/openssl"
+alias mdl="markdownlint --disable MD013 --"
 
 # Enable "Secure Keyboard" for MacOS X
 # > How secure is “Secure Keyboard Entry” in Mac OS X's Terminal?
@@ -41,14 +49,53 @@ defaults write com.apple.Terminal SecureKeyboardEntry 1
 
 # > tobym/pwdx_for_mac.bash
 # > https://gist.github.com/tobym/648188
-_pwdx() {
-        lsof -a -p "${1}" -d cwd -n | tail -1 | awk '{print $NF}'
-}
+pwdx() { lsof -a -p "${1}" -d cwd -n | tail -1 | awk '{print $NF}'; }
 
 # https://www.funtoo.org/Keychain
-eval $(keychain --eval --quiet)
+# eval $(keychain --eval --quiet)
 
 # dmesg: translate relative printk time stamps to absolute time stamps
-_kmsg() {
-	dmesg | perl -ne "BEGIN{\$a= time()- qx!cat /proc/uptime!}; s/\[\s*(\d+)\.\d+\]/localtime(\$1 + \$a)/e; print \$_;"
+# kmsg() {
+# 	dmesg | perl -ne "BEGIN{\$a= time()- qx!cat /proc/uptime!}; s/\[\s*(\d+)\.\d+\]/localtime(\$1 + \$a)/e; print \$_;"
+# }
+
+# Can we find page count of a file in Unix/Linux?
+# https://unix.stackexchange.com/a/143932/31256
+_pc() {
+	perl -MPOSIX=ceil -nle 'END{print ceil($./56)}'
+}
+
+#
+# Great for adding colons to TLS serial numbers
+# > echo | openssl s_client -connect www.example.net:443 2>/dev/null | \
+#          openssl x509 -noout -serial | cut -d= -f2 | _tocolon
+# 07:DA:5B:4C:84:92:5F:D3:1F:AB:71:9D:96:09:61:52
+#
+_tocolon() {
+	sed 's/../&:/g;s/:$//'
+}
+
+#
+# Great for removing colons to TLS serial numbers
+# > echo 07:DA:5B:4C:84:92:5F:D3:1F:AB:71:9D:96:09:61:52 | _fromcolon
+# 07DA5B4C84925FD31FAB719D96096152
+_fromcolon() {
+	sed 's/://g' | tr [a-z] [A-Z]
+}
+
+#
+# Convert TLS serial numbers from hexadecimal to decimal
+# > _certdec 07DA5B4C84925FD31FAB719D96096152
+# 10438368447298263904886733588962828626
+#
+_certdec() {
+	echo "ibase=16; ${1}" | bc -l
+}
+
+#
+# And back to hexadecimal again
+# > _certhex 10438368447298263904886733588962828626
+# 07DA5B4C84925FD31FAB719D96096152
+_certhex() {
+	echo "obase=16; ${1}" | bc -l
 }

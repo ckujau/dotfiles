@@ -3,7 +3,7 @@
 #
 umask 0027
 
-export TERM='xterm'
+export TERM='xterm-256color'
 export PAGER='less'
 export LESS='--ignore-case --squeeze-blank-lines --no-init --RAW-CONTROL-CHARS'
 export EDITOR='vim'
